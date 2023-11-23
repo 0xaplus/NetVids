@@ -2,7 +2,7 @@ const url = new URL(location.href);
 const movieId = url.searchParams.get("id"); // https://movies/?id=t5h46&title=test , movieId = t5h46
 const movieTitle = url.searchParams.get("title"); // title = test
 
-const APILINK = "http://localhost:8000/api/v1/reviews/";
+const APILINK = "https://netvids-api.onrender.com/api/v1/reviews/";
 
 const main = document.getElementById("section");
 const title = document.getElementById("title");
