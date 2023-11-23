@@ -22,7 +22,6 @@ export default class ReviewsDAO {
         user: user,
         review: review,
       };
-      console.log("adding");
       return await reviews.insertOne(reviewDoc);
     } catch (e) {
       console.error(`Unable to post review: ${e}`);

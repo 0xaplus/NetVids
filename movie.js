@@ -1,13 +1,35 @@
 const url = new URL(location.href);
-const movieId = url.searchParams.get("id");
-const movieTitle = url.searchParams.get("title");
+const movieId = url.searchParams.get("id"); // https://movies/?id=t5h46&title=test , movieId = t5h46
+const movieTitle = url.searchParams.get("title"); // title = test
 
 const APILINK = "http://localhost:8000/api/v1/reviews/";
+// const APILINK = "https://aplus-netvids.netlify.app/api/v1/reviews/";
 
 const main = document.getElementById("section");
 const title = document.getElementById("title");
 
 title.innerText = movieTitle;
+
+const div_new = document.createElement("div");
+div_new.innerHTML = `
+  <div class="row">
+    <div class="column">
+      <div class="card">
+          New Review
+          <p><strong>Review: </strong>
+            <input type="text" id="new_review" value="">
+          </p>
+          <p><strong>User: </strong>
+            <input type="text" id="new_user" value="">
+          </p>
+          <p><a href="#" onclick="saveReview('new_review', 'new_user')">💾</a>
+          </p>
+      </div>
+    </div>
+  </div>
+`;
+
+main.appendChild(div_new);
 
 returnReviews(APILINK);
 
@@ -37,12 +59,14 @@ function returnReviews(url) {
 function editReview(id, review, user) {
   const element = document.getElementById(id);
   const reviewInputId = "review" + id;
+  const userInputId = "user" + id
+
   element.innerHTML = `
         <p><strong>Review: </strong>
-            <input type="text" id="${reviewInputId}" value="${review}">
+          <input type="text" id="${reviewInputId}" value="${review}">
         </p>
         <p><strong>User: </strong>
-            <input type="text" id="${userInputId}" value="${user}">
+          <input type="text" id="${userInputId}" value="${user}">
         </p>
         <p><a href="#" onclick="saveReview('${reviewInputId}', '${userInputId}', '${id}',)">💾</a>
         </p>

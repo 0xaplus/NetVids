@@ -6,7 +6,6 @@ export default class ReviewsController {
       const movieId = parseInt(req.body.movieId)
       const review = req.body.review
       const user = req.body.user
-    //   console.log('movieid', movieId)
       const reviewResponse = await ReviewsDAO.addReview(
         movieId,
         user,
@@ -52,7 +51,7 @@ export default class ReviewsController {
 
       if (reviewResponse.modifiedCount === 0) {
         throw new Error(
-          "unable to update review",
+          "Unable to update reviews!",
         )
       }
 
