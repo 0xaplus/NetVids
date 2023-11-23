@@ -3,7 +3,6 @@ const movieId = url.searchParams.get("id"); // https://movies/?id=t5h46&title=te
 const movieTitle = url.searchParams.get("title"); // title = test
 
 const APILINK = "http://localhost:8000/api/v1/reviews/";
-// const APILINK = "https://aplus-netvids.netlify.app/api/v1/reviews/";
 
 const main = document.getElementById("section");
 const title = document.getElementById("title");
